@@ -4,7 +4,6 @@ const ProductCardContext = createContext(null);
 
 export const useProductCardContext = () => {
   const context = useContext(ProductCardContext);
-  console.log(context);
 
   if (!context) {
     throw new Error(

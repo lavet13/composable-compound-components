@@ -1,4 +1,4 @@
-import { useContext, Fragment } from 'react';
+import { useContext } from 'react';
 
 import { ProductsContext } from './contexts/products.context';
 import { CartContext } from './contexts/cart.context';
