@@ -1,15 +1,17 @@
 import { useProductCardContext } from '../../contexts/product-card.context';
 
+import { Typography } from '@mui/material';
+
 const ProductPrice = ({ currency = 'EUR' }) => {
   const { product } = useProductCardContext();
 
   return (
-    <span>
+    <Typography component='legend'>
       {new Intl.NumberFormat(navigator.language, {
         style: 'currency',
         currency,
       }).format(product.price)}
-    </span>
+    </Typography>
   );
 };
 

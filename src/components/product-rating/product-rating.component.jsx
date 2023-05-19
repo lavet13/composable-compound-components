@@ -1,23 +1,25 @@
-import { useProductCardContext } from '../../contexts/product-card.context';
+import { useContext } from 'react';
 
-import FillStar from './fill-star.component';
-import OutlineStar from './outline-star.component';
+import { useProductCardContext } from '../../contexts/product-card.context';
+import { ProductsContext } from '../../contexts/products.context';
+
+import { Rating } from '@mui/material';
 
 const ProductRating = () => {
   const { product } = useProductCardContext();
+  const { setRating } = useContext(ProductsContext);
+
+  const changeRatingHandler = (_, newValue) => {
+    setRating({ ...product, rating: { stars: newValue } });
+  };
 
   return (
-    <span>
-      {[1, 2, 3, 4, 5].map(i =>
-        i <= product.rating.stars ? (
-          <FillStar key={i} />
-        ) : (
-          <OutlineStar key={i} />
-        )
-      )}
-    </span>
+    <Rating
+      name='rating-controlled'
+      value={product.rating.stars}
+      onChange={changeRatingHandler}
+    />
   );
-  // return <span>{'★'.repeat(product.rating.stars).padEnd(5, '☆')}</span>;
 };
 
 export default ProductRating;

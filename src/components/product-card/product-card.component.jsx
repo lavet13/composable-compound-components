@@ -8,18 +8,20 @@ import ProductPrice from '../product-price/product-price.component';
 import ProductRating from '../product-rating/product-rating.component';
 import ProductTitle from '../product-title/product-title.component';
 
-import { ProductCardContainer, ProductCardBottom } from './product-card.styles';
+import { Card } from '@mui/material';
+
+import { ProductCardBottom } from './product-card.styles';
 
 const ProductCard = ({ image, info, action, product }) => {
   return (
     <ProductCardContext.Provider value={{ product }}>
-      <ProductCardContainer>
+      <Card sx={{ maxWidth: '100%' }}>
         {image}
         <ProductCardBottom>
           {info}
           {action}
         </ProductCardBottom>
-      </ProductCardContainer>
+      </Card>
     </ProductCardContext.Provider>
   );
 };
